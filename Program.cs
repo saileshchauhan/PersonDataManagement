@@ -11,6 +11,7 @@ namespace PersonDataManagement
             List<Person> personList = new List<Person>();
             addPersonData_In_personList(personList);
             Retrieving_TopTwoRecord_ForAgeIs_LessThanSixty(personList);
+            Retrieving_All_Record_ForAgeIs_GreaterThan_Equal_ToSixty(personList);
 
         }
         public static void addPersonData_In_personList(List<Person> personList)
@@ -29,6 +30,15 @@ namespace PersonDataManagement
             foreach(Person person in personList.FindAll(e => (e.Age < 60)).Take(2).ToList())
             {
                 Console.WriteLine("Name: "+person.Name+"\t\tAge: "+person.Age);
+            }
+        }
+        //UC6
+        public static void Retrieving_All_Record_ForAgeIs_GreaterThan_Equal_ToSixty(List<Person> personList)
+        {
+            foreach (Person person in personList.FindAll(e => (e.Age >= 60)).ToList())
+            {
+                Console.WriteLine(" Details of person greater than 60 ");
+                Console.WriteLine("Name: " + person.Name + "\t\tAge: " + person.Age);
             }
         }
 
