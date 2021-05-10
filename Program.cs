@@ -12,6 +12,7 @@ namespace PersonDataManagement
             addPersonData_In_personList(personList);
             Retrieving_TopTwoRecord_ForAgeIs_LessThanSixty(personList);
             Retrieving_All_Record_ForAgeIs_GreaterThan_Equal_ToSixty(personList);
+            Searching_For_Name_Of_Person(personList,"Samuel");
 
         }
         public static void addPersonData_In_personList(List<Person> personList)
@@ -32,7 +33,15 @@ namespace PersonDataManagement
                 Console.WriteLine("Name: "+person.Name+"\t\tAge: "+person.Age);
             }
         }
-        //UC6
+        //UC5-Find Name of A Person
+        public static void Searching_For_Name_Of_Person(List<Person> personList,string name)
+        {
+            foreach (Person person in personList.FindAll(person => person.Name == name).ToList())
+            {
+                Console.WriteLine("Person Found " + person.Name + "\t\t Person SSN : " + person.SSN) ;
+            }
+        }
+        //UC6-All Records Above 60
         public static void Retrieving_All_Record_ForAgeIs_GreaterThan_Equal_ToSixty(List<Person> personList)
         {
             foreach (Person person in personList.FindAll(e => (e.Age >= 60)).ToList())
@@ -41,6 +50,7 @@ namespace PersonDataManagement
                 Console.WriteLine("Name: " + person.Name + "\t\tAge: " + person.Age);
             }
         }
+
 
     }
 }
